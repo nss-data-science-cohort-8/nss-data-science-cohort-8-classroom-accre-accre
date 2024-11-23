@@ -1,6 +1,6 @@
-
 import pandas as pd
 
+# slurm log csv conversion
 def log_to_df(log):
     df = pd.read_csv(log,
         header=None,
@@ -8,7 +8,7 @@ def log_to_df(log):
         engine='python')
     return df
 
-
+# slurm log finding for user 9204, with a return code of 1, and time of 15 seconds, and in sbatch. pulling only the timestamps out of the log
 def df_to_datelist(df1):
     df = df1.copy(deep = True)
     df[3] = df[3].str.replace('time ', '')
